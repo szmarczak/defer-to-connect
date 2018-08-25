@@ -9,7 +9,7 @@ module.exports = (socket, method, ...args) => {
 		call = () => socket[method](...args);
 	}
 
-	if (socket.writable) {
+	if (socket.writable && !socket.connecting) {
 		call();
 	} else {
 		socket.once('connect', call);
