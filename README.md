@@ -17,10 +17,6 @@ deferToConnect(socket, () => {
 
 ## API
 
-### deferToConnect(socket, method, ...args)
-
-Calls `socket[method](...args)` when connected.
-
 ### deferToConnect(socket, fn)
 
 Calls `fn()` when connected.
