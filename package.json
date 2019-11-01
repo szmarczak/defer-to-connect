@@ -2,9 +2,11 @@
   "name": "defer-to-connect",
   "version": "1.0.2",
   "description": "The safe way to handle the `connect` socket event",
-  "main": "index.js",
+  "main": "dist",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "del-cli dist && tsc",
+    "prepublishOnly": "npm run build",
+    "test": "xo"
   },
   "keywords": [
     "socket",
@@ -20,5 +22,22 @@
   "bugs": {
     "url": "https://github.com/szmarczak/defer-to-connect/issues"
   },
-  "homepage": "https://github.com/szmarczak/defer-to-connect#readme"
+  "homepage": "https://github.com/szmarczak/defer-to-connect#readme",
+  "xo": {
+    "extends": "xo-typescript",
+    "extensions": [
+      "ts"
+    ]
+  },
+  "devDependencies": {
+    "@sindresorhus/tsconfig": "^0.5.0",
+    "@types/node": "^12.12.4",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "del-cli": "^3.0.0",
+    "eslint-config-xo-typescript": "^0.19.0",
+    "typescript": "^3.6.4",
+    "xo": "^0.25.3"
+  },
+  "types": "dist"
 }

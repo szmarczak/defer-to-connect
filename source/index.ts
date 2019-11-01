@@ -1,6 +1,6 @@
-'use strict';
+import {Socket} from 'net';
 
-module.exports = (socket, callback) => {
+export default (socket: Socket, callback: () => unknown): void => {
 	if (socket.writable && !socket.connecting) {
 		callback();
 	} else {
