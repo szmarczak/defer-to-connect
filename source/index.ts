@@ -1,6 +1,6 @@
 import {Socket} from 'net';
 
-export default (socket: Socket, callback: () => unknown): void => {
+export default (socket: Socket, callback: () => void): void => {
 	if (socket.writable && !socket.connecting) {
 		callback();
 	} else {
