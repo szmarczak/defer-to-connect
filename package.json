@@ -6,7 +6,7 @@
   "scripts": {
     "build": "del-cli dist && tsc",
     "prepublishOnly": "npm run build",
-    "test": "xo"
+    "test": "xo && nyc ava"
   },
   "keywords": [
     "socket",
@@ -27,17 +27,42 @@
     "extends": "xo-typescript",
     "extensions": [
       "ts"
-    ]
+    ],
+    "rules": {
+      "ava/no-ignored-test-files": "off"
+    }
   },
   "devDependencies": {
     "@sindresorhus/tsconfig": "^0.5.0",
     "@types/node": "^12.12.4",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.6.0",
+    "@types/sinon": "^7.5.0",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "ava": "^2.1.0",
+    "coveralls": "^3.0.7",
     "del-cli": "^3.0.0",
-    "eslint-config-xo-typescript": "^0.19.0",
+    "eslint-config-xo-typescript": "^0.15.0",
+    "nyc": "^14.0.0",
+    "p-event": "^4.1.0",
+    "sinon": "^7.5.0",
+    "ts-node": "^8.1.0",
     "typescript": "^3.6.4",
     "xo": "^0.25.3"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ]
+  },
+  "ava": {
+    "babel": false,
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   },
   "types": "dist"
 }
