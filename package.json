@@ -6,7 +6,8 @@
   "scripts": {
     "build": "del-cli dist && tsc",
     "prepublishOnly": "npm run build",
-    "test": "xo && nyc ava"
+    "test": "xo && nyc ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
     "socket",
