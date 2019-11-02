@@ -1,6 +1,6 @@
 {
   "name": "defer-to-connect",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "The safe way to handle the `connect` socket event",
   "main": "dist",
   "scripts": {
