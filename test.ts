@@ -150,6 +150,7 @@ test('no memory leak when using a self-signed certificate', async t => {
 	// @ts-ignore
 	server.close = promisify(server.close);
 
+	// eslint-disable-next-line @typescript-eslint/await-thenable
 	await server.listen();
 
 	const socket = secureConnect((server.address() as AddressInfo).port, 'localhost', {rejectUnauthorized: false});
@@ -167,5 +168,6 @@ test('no memory leak when using a self-signed certificate', async t => {
 
 	socket.end();
 
+	// eslint-disable-next-line @typescript-eslint/await-thenable
 	await server.close();
 });
