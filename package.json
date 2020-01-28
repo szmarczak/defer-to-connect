@@ -2,8 +2,8 @@
   "name": "defer-to-connect",
   "version": "1.1.1",
   "description": "The safe way to handle the `connect` socket event",
-	"main": "dist",
-	"files": ["dist"],
+  "main": "dist",
+  "files": ["dist"],
   "scripts": {
     "build": "del-cli dist && tsc",
     "prepublishOnly": "npm run build",
