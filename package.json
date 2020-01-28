@@ -11,8 +11,8 @@
 	},
   "scripts": {
     "build": "del-cli dist && tsc",
-    "prepublishOnly": "npm run build",
-    "test": "xo && nyc ava",
+    "prepare": "npm run build",
+    "test": "xo && tsc --noEmit && nyc ava",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
