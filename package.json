@@ -58,6 +58,9 @@
     ]
   },
   "ava": {
+		"files": [
+			"!**/*.d.ts"
+		],
     "typescript": {
       "rewritePaths": {
         "tests/": "dist/tests/"
