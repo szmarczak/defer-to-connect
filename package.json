@@ -2,8 +2,10 @@
   "name": "defer-to-connect",
   "version": "1.1.1",
   "description": "The safe way to handle the `connect` socket event",
-  "main": "dist",
-  "files": ["dist"],
+  "main": "dist/source",
+  "files": [
+    "dist/source"
+  ],
   "scripts": {
     "build": "del-cli dist && tsc",
     "prepublishOnly": "npm run build",
@@ -29,25 +31,22 @@
     "extends": "xo-typescript",
     "extensions": [
       "ts"
-    ],
-    "rules": {
-      "ava/no-ignored-test-files": "off"
-    }
+    ]
   },
   "devDependencies": {
-    "@sindresorhus/tsconfig": "^0.5.0",
-    "@types/node": "^12.12.4",
-    "@typescript-eslint/eslint-plugin": "^1.11.0",
-    "@typescript-eslint/parser": "^1.11.0",
-    "ava": "^2.1.0",
-    "coveralls": "^3.0.7",
+    "@ava/typescript": "^1.0.0",
+    "@sindresorhus/tsconfig": "^0.7.0",
+    "@types/node": "^13.5.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "ava": "^3.1.0",
+    "coveralls": "^3.0.9",
     "create-cert": "^1.0.6",
     "del-cli": "^3.0.0",
-    "eslint-config-xo-typescript": "^0.15.0",
-    "nyc": "^14.0.0",
+    "eslint-config-xo-typescript": "^0.24.1",
+    "nyc": "^15.0.0",
     "p-event": "^4.1.0",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.6.4",
+    "typescript": "^3.7.5",
     "xo": "^0.25.3"
   },
   "nyc": {
@@ -56,14 +55,11 @@
     ]
   },
   "ava": {
-    "babel": false,
-    "compileEnhancements": false,
-    "extensions": [
-      "ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ]
+    "typescript": {
+      "rewritePaths": {
+        "tests/": "dist/tests/"
+      }
+    }
   },
-  "types": "dist"
+  "types": "dist/source"
 }

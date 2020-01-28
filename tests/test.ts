@@ -5,7 +5,7 @@ import test from 'ava';
 // @ts-ignore No types yet
 import createCert = require('create-cert');
 import pEvent from 'p-event';
-import deferToConnect from './source';
+import deferToConnect from '../source';
 
 const delay = async (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
 
