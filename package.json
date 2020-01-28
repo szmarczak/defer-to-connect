@@ -5,7 +5,10 @@
   "main": "dist/source",
   "files": [
     "dist/source"
-  ],
+	],
+	"engines": {
+		"node": ">=10"
+	},
   "scripts": {
     "build": "del-cli dist && tsc",
     "prepublishOnly": "npm run build",
