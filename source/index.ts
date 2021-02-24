@@ -7,6 +7,10 @@ interface Listeners {
 	close?: (hadError: boolean) => void;
 }
 
+function isTLSSocket(socket: any): socket is TLSSocket {
+	return socket.encrypted;
+}
+
 const deferToConnect = (socket: Socket | TLSSocket, fn: Listeners | (() => void)): void => {
 	let listeners: Listeners;
 
@@ -26,7 +30,7 @@ const deferToConnect = (socket: Socket | TLSSocket, fn: Listeners | (() => void)
 			listeners.connect!();
 		}
 
-		if (socket.encrypted && hasSecureConnectListener) {
+		if (isTLSSocket(socket) && hasSecureConnectListener) {
 			if (socket.authorized) {
 				listeners.secureConnect!();
 			} else if (!socket.authorizationError) {
